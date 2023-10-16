@@ -13,13 +13,17 @@ class Data {
       url: Strings.LINKED_IN_URL,
     ),
     SocialButtonData(
+      tag: "Strings",
+      url: Strings.UPWORK_URL,
+    ),
+    SocialButtonData(
       tag: Strings.GITHUB_URL,
       iconData: FontAwesomeIcons.github,
       url: Strings.GITHUB_URL,
     ),
     SocialButtonData(
       tag: Strings.TWITTER_URL,
-      iconData: FontAwesomeIcons.twitter,
+      iconData: FontAwesomeIcons.xTwitter,
       url: Strings.TWITTER_URL,
     ),
     SocialButtonData(
@@ -47,7 +51,14 @@ class Data {
     ),
     SocialButton2Data(
       title: '',
-      iconData: FontAwesomeIcons.twitter,
+      url: Strings.UPWORK_URL,
+      titleColor: AppColors.brown300,
+      buttonColor: AppColors.brown300,
+      iconColor: AppColors.white,
+    ),
+    SocialButton2Data(
+      title: '',
+      iconData: FontAwesomeIcons.xTwitter,
       url: Strings.TWITTER_URL,
       titleColor: AppColors.brown300,
       buttonColor: AppColors.brown300,

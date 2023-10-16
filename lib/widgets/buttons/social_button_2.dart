@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../values/values.dart';
 import '../../widgets/widgets.dart';
@@ -6,14 +7,14 @@ import '../../widgets/widgets.dart';
 class SocialButton2Data {
   final String title;
   final String url;
-  final IconData iconData;
+  final IconData? iconData;
   final Color? iconColor;
   final Color? buttonColor;
   final Color? titleColor;
 
   SocialButton2Data({
     required this.title,
-    required this.iconData,
+    this.iconData,
     required this.url,
     this.iconColor,
     this.buttonColor,
@@ -25,7 +26,7 @@ class SocialButton2 extends StatefulWidget {
   const SocialButton2({
     super.key,
     required this.title,
-    required this.iconData,
+    this.iconData,
     required this.onPressed,
     this.titleStyle,
     this.titleColor = AppColors.black,
@@ -51,7 +52,7 @@ class SocialButton2 extends StatefulWidget {
   final double? width;
   final double? height;
   final double elevation;
-  final IconData iconData;
+  final IconData? iconData;
   final double iconSize;
   final Color? iconColor;
   final Color? buttonColor;
@@ -122,11 +123,21 @@ class _SocialButton2State extends State<SocialButton2>
               child: Center(
                 child: InkWell(
                   onTap: widget.onPressed,
-                  child: Icon(
-                    widget.iconData,
-                    size: widget.iconSize,
-                    color: _isHovering ? widget.buttonColor : widget.iconColor,
-                  ),
+                  child: widget.iconData != null
+                      ? Icon(
+                          widget.iconData,
+                          size: widget.iconSize,
+                          color: _isHovering
+                              ? widget.buttonColor
+                              : widget.iconColor,
+                        )
+                      : SvgPicture.asset(
+                          ImagePath.upWorkIcon,
+                          width: Sizes.ICON_SIZE_26,
+                          color: _isHovering
+                              ? widget.buttonColor
+                              : widget.iconColor,
+                        ),
                 ),
               ),
             ),

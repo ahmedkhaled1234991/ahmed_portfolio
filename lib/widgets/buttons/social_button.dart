@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../values/values.dart';
 
 class SocialButtonData {
   final String tag;
   final String url;
-  final IconData iconData;
+  final IconData? iconData;
   final Color? iconColor;
   final Color? borderColor;
 
   SocialButtonData({
     required this.tag,
-    required this.iconData,
+    this.iconData,
     required this.url,
     this.iconColor,
     this.borderColor,
@@ -22,7 +23,7 @@ class SocialButton extends StatelessWidget {
   const SocialButton({
     super.key,
     required this.tag,
-    required this.iconData,
+    this.iconData,
     this.onPressed,
     this.width = Sizes.WIDTH_28,
     this.height = Sizes.HEIGHT_28,
@@ -37,7 +38,7 @@ class SocialButton extends StatelessWidget {
   final double width;
   final double elevation;
   final double height;
-  final IconData iconData;
+  final IconData? iconData;
   final double iconSize;
   final Color iconColor;
   final Color buttonColor;
@@ -55,11 +56,16 @@ class SocialButton extends StatelessWidget {
         onPressed: onPressed,
         backgroundColor: buttonColor,
         heroTag: tag,
-        child: Icon(
-          iconData,
-          size: iconSize,
-          color: iconColor,
-        ),
+        child: iconData != null
+            ? Icon(
+                iconData,
+                size: iconSize,
+                color: iconColor,
+              )
+            : SvgPicture.asset(
+                ImagePath.upWorkIcon,
+                width: Sizes.ICON_SIZE_20,
+              ),
       ),
     );
   }

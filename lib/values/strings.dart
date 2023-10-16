@@ -105,6 +105,8 @@ class Strings {
   //URL Links
   static const String LINKED_IN_URL =
       "https://www.linkedin.com/in/ahmed-khaled-64712b184/";
+  static const String UPWORK_URL =
+      "https://www.upwork.com/freelancers/ahmedk255";
   static const String INSTAGRAM_URL =
       "https://www.instagram.com/ahmedkhaled1234991/";
   static const String GITHUB_URL = "https://github.com/ahmedkhaled1234991";
